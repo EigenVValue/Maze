@@ -1,0 +1,40 @@
+User's move
+STEPS:
+ONE. Ask user for input.
+
+TWO. If the input is valid, set new coordinate of mouse.  
+   If the input is invalid, ask user for input again.
+
+THREE. Move function.
+    Steps:
+    1. Check if there is a wall or a cat.
+        If there is no wall, check if mouse meets the cat. (else back to ONE)
+       If there is no cat, continue. (else game over)
+       If 
+    2. Let 3 cats move. 
+        The move of cats is randomly.
+    3. Check again if cats meet the mouse.
+       If no cat meets mouse, continue. (else game over)
+    4. Check if mouse meets cheese.
+       If mouse meets cheese, add one to the counter of number of cheese collected. Then decide we have the winner or we need to reset the map by counter.
+       If there is no cheese, back to ONE.
+
+    Keep doing those steps until we have a winner or mouse meets cat.
+
+Maze generation
+1. Generate an maze in VisitMaze[][] which has tow variables to show if it is a wall(isWall) and if it is visited by depth-first search(isVisited).
+
+2. Create a default 2D maze with all point is a road and not visited.
+
+3. Change the edge to wall.
+
+4. start with coordinate (1,1), use a while loop to do addWall and stop at the end point.
+
+addWall:
+   a. Check if x is at the end point of the row. If it is true, go to next row;
+   b. Randomly change maze[x][y] to "1" or not;
+   c. Use isRoom to check if it is valid. If it is invalid, flip isWall.
+      in isRoom, let current point be (2,2) of a 2x2 room. Then check if all of other points is same road or wall.   
+   d. Then use isReachable to check if it is valid. If it is invalid, x--, y-- and clear the wall and "visit" behind the new point;
+      in isReachable, it use a depth-first search from current point and mark it "visited". Then search the whole maze to show if there exists a road that is not visited.
+   e. X-axis of coordinate plus 1 then return the new coordinate.
