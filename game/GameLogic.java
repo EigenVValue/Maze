@@ -7,7 +7,7 @@
 
 package game;
 
-import ca.cmpt213.ui.GameUI;
+import ui.GameUI;
 
 public class GameLogic {
     public static void main (String [] args) {
